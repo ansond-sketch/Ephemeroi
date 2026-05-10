@@ -1,4 +1,27 @@
 /**
+ * Reset Axioms (Constellation v0.14.0 §9) — load-bearing for this module.
+ *
+ *   A1  Ephemeroi is not a belief system. It constructs provisional world
+ *       models from observations, constraints, mechanisms, and predictive
+ *       testing.
+ *   A2  All abstractions are tools, not truths. Speculation must be
+ *       labeled. Confidence must be earned.
+ *   A3  Mechanisms outrank metaphor. A beautiful theory that predicts
+ *       nothing is decoration.
+ *   A4  Prediction outranks elegance. Reality outranks narrative.
+ *   A5  Fresh evidence outranks memory. Reality Layer recomputes from
+ *       scratch every cycle. No trust value overrides raw clause
+ *       satisfaction.
+ *   A6  The squirrel problem propagates. Any system that accumulates
+ *       orientation-like state is a squirrel attack surface; apply
+ *       adversarial probing at every accumulation point.
+ *
+ * This module is the first place A2-A4 are enforced in the TS solver:
+ * every escape mechanism enters as `speculative`, is forced to make a
+ * prediction at firing time, and only earns `mechanism` status by
+ * surviving contact with the unsat trajectory (the Reality Layer).
+ * Failures demote. Stale confidence does not survive.
+ *
  * HypothesisLedger
  * ----------------
  * Tracks every "escape mechanism" firing (AdversarialRestart, Cyrus Edict)
